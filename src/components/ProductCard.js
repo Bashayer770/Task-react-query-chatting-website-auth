@@ -1,9 +1,10 @@
-import { Button, Card, Col } from 'react-bootstrap';
-import productStore from '../stores/productStore';
-import ProductModal from './ProductModal';
+import { Button, Card, Col } from "react-bootstrap";
+import ProductModal from "./ProductModal";
 
 function ProductCard({ product }) {
-  const handleDelete = () => productStore.deleteProduct(product._id);
+  const handleDelete = () => {
+    // do the delete function here
+  };
 
   return (
     <Col className="col-lg-4 mx-auto">

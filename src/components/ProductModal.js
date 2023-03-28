@@ -1,6 +1,5 @@
 import { Button, InputGroup, FormControl, Modal } from "react-bootstrap";
 import { useState } from "react";
-import productStore from "../stores/productStore";
 
 function ProductModal({ oldProduct }) {
   const [show, setShow] = useState(false);
@@ -23,8 +22,8 @@ function ProductModal({ oldProduct }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (oldProduct) productStore.updateProduct(product, oldProduct._id);
-    else productStore.createProduct(product);
+    // DO the create function here
+
     handleClose();
   };
 

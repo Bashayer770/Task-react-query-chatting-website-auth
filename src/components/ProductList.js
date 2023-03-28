@@ -1,18 +1,15 @@
-import Card from "./ProductCard";
+import ProductCard from "./ProductCard";
 import { useState } from "react";
 import ProductModal from "./ProductModal";
-import { observer } from "mobx-react";
-import productStore from "../stores/productStore";
 import { Button, Form, Row, Stack } from "react-bootstrap";
-
 function ProductList() {
   const [query, setQuery] = useState("");
 
-  const productList = productStore.products
+  const productList = []
     .filter((product) =>
       product.name.toLowerCase().includes(query.toLowerCase())
     )
-    .map((product) => <Card key={product._id} product={product} />);
+    .map((product) => <ProductCard key={product._id} product={product} />);
 
   return (
     <div>
@@ -31,4 +28,4 @@ function ProductList() {
   );
 }
 
-export default observer(ProductList);
+export default ProductList;
