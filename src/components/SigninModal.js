@@ -1,10 +1,11 @@
-import { Button, InputGroup, FormControl, Modal } from 'react-bootstrap';
-import { useState } from 'react';
+import { Button, InputGroup, FormControl, Modal } from "react-bootstrap";
+import { useState } from "react";
+import { useLogin } from "../utils/api/auth";
 
 function SigninModal() {
   const [show, setShow] = useState(false);
   const [user, setUser] = useState();
-
+  const login = useLogin();
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -13,6 +14,7 @@ function SigninModal() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    login.mutate(user);
     handleClose();
   };
 
